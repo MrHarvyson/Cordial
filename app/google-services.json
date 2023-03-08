@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "271135836087",
+    "project_id": "cordial-4588d",
+    "storage_bucket": "cordial-4588d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271135836087:android:4148a05297d9fdb93a0a32",
+        "android_client_info": {
+          "package_name": "com.josec.cordial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271135836087-f8jkh1s2kb36uu7snb0kc3nddd4qd7cu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvvyhwSP3D6blkBqT22ntL91IggrUO2Nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271135836087-f8jkh1s2kb36uu7snb0kc3nddd4qd7cu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

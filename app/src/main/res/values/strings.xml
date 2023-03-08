@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">VEDRUNA</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="registar">REGISTRAR</string>
+    <string name="correo">Correo</string>
+    <string name="introCorreo">Introducir correo</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="introContrasena">Introducir contraseña</string>
+    <string name="repeContrasena">Repetir contraseña</string>
+    <string name="olvidado">¿Has olvidado tu contraseña?</string>
+    <string name="version">Versión 1.0</string>
+    <string name="vedruna">VEDRUNA EDUCACIÓN</string>
+    <string name="nombre">Introduzca su nombre</string>
+    <string name="primerApellido">Introduzca primer apellido</string>
+    <string name="segundoApellido">Introduzca segundo apellido</string>
+    <string name="finalizar">FINALIZAR</string>
+    <string name="completar">Para terminar completa los siguientes campos:</string>
+</resources>

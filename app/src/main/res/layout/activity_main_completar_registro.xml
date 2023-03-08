@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".activities.MainCompletarRegistro">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:transitionName="logo"
+        android:translationY="-1000dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgMarca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imgGoogle"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:transitionName="google"
+        android:translationY="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMarca"
+        app:srcCompat="@drawable/boton_google" />
+
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        android:textColor="@color/white"
+        android:transitionName="version"
+        android:translationY="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgGoogle" />
+
+    <TextView
+        android:id="@+id/imgMarca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/aldrich"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/vedruna"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:transitionName="marca"
+        android:translationY="-1000dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtPrimerApellido"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerApellido"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerApellido" />
+
+    <EditText
+        android:id="@+id/txtPrimerApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:hint="@string/primerApellido"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtSegundoApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/segundoApellido"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerApellido"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerApellido"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrimerApellido" />
+
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/boton_azul_marco"
+        android:fontFamily="@font/aldrich"
+        android:text="@string/finalizar"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSegundoApellido" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/aldrich"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/completar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtPrimerApellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
