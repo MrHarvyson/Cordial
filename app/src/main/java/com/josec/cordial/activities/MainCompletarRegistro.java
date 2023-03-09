@@ -1,19 +1,15 @@
 package com.josec.cordial.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.josec.cordial.R;
 import com.josec.cordial.models.Alumno;
 import com.josec.cordial.providers.AlumnoProvider;
@@ -40,8 +36,8 @@ public class MainCompletarRegistro extends AppCompatActivity {
         apellidoSegundo = findViewById(R.id.txtSegundoApellido);
         entrar = findViewById(R.id.btnFinalizar);
         logo = findViewById(R.id.imgLogo);
-        google = findViewById(R.id.imgGoogle);
-        marca = findViewById(R.id.imgMarca);
+        google = findViewById(R.id.imgProfesora);
+        marca = findViewById(R.id.txtMarca);
         version = findViewById(R.id.txtVersion);
 
         mAlumnoProvider = new AlumnoProvider();

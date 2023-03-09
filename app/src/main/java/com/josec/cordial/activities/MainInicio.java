@@ -32,9 +32,12 @@ public class MainInicio extends AppCompatActivity {
         //para ocultar barra con el titulo
         getSupportActionBar().hide();
 
+        /*
         nombre = findViewById(R.id.txtFireNombre);
         alumnoProvider = new AlumnoProvider();
         salir = findViewById(R.id.btnSalir);
+
+
 
         alumnoProvider.getUser(id).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -53,6 +56,6 @@ public class MainInicio extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 }

@@ -10,42 +10,44 @@
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:transitionName="logo"
-        app:layout_constraintBottom_toTopOf="@+id/imgMarca"
+        app:layout_constraintBottom_toTopOf="@+id/txtMarca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logo"
+        android:transitionName="imgTranLogo"/>
 
     <ImageView
-        android:id="@+id/imgGoogle"
-        android:layout_width="0dp"
+        android:id="@+id/imgProfesora"
+        android:layout_width="125dp"
         android:layout_height="125dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVersion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMarca"
-        app:srcCompat="@drawable/boton_google"
-        android:transitionName="google"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtMarca"
+        app:layout_constraintVertical_bias="0.4"
+        app:srcCompat="@drawable/profesor"
+        android:transitionName="imgTranProfesora"/>
 
     <TextView
         android:id="@+id/txtVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/aldrich"
         android:text="@string/version"
-        android:textColor="@color/white"
+        android:textColor="@color/grisOscuro"
+        android:transitionName="txtTranVersion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgGoogle"
-        android:transitionName="version"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/imgMarca"
+        android:id="@+id/txtMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -54,13 +56,55 @@
         android:lineSpacingExtra="8sp"
         android:text="@string/vedruna"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textColor="@color/gris"
+        android:textSize="45sp"
         android:textStyle="bold"
-        android:transitionName="marca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:transitionName="imgTranMarca"/>
+
+    <ImageView
+        android:id="@+id/imgAlumno"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVersion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMarca"
+        app:layout_constraintVertical_bias="0.4"
+        app:srcCompat="@drawable/estudiante"
+        android:transitionName="imgTranAlumno"/>
+
+    <TextView
+        android:id="@+id/txtAlumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="ALUMNADO"
+        android:textColor="@color/gris"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtVersion"
+        app:layout_constraintEnd_toEndOf="@+id/imgAlumno"
+        app:layout_constraintStart_toStartOf="@+id/imgAlumno"
+        app:layout_constraintTop_toBottomOf="@+id/imgAlumno"
+        app:layout_constraintVertical_bias="0.2"
+        android:transitionName="txtTranAlumno"/>
+
+    <TextView
+        android:id="@+id/txtProfesora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="PROFESORADO"
+        android:textColor="@color/gris"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtVersion"
+        app:layout_constraintEnd_toEndOf="@+id/imgProfesora"
+        app:layout_constraintStart_toStartOf="@+id/imgProfesora"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfesora"
+        app:layout_constraintVertical_bias="0.2"
+        android:transitionName="txtTranProfesora"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

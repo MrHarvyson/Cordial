@@ -15,14 +15,14 @@
         android:layout_marginEnd="100dp"
         android:transitionName="logo"
         android:translationY="-1000dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgMarca"
+        app:layout_constraintBottom_toTopOf="@+id/txtMarca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <ImageView
-        android:id="@+id/imgGoogle"
+        android:id="@+id/imgProfesora"
         android:layout_width="0dp"
         android:layout_height="125dp"
         android:transitionName="google"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMarca"
+        app:layout_constraintTop_toBottomOf="@+id/txtMarca"
         app:srcCompat="@drawable/boton_google" />
 
     <TextView
@@ -45,10 +45,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgGoogle" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfesora" />
 
     <TextView
-        android:id="@+id/imgMarca"
+        android:id="@+id/txtMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -73,8 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:ems="10"
+        android:fontFamily="@font/aldrich"
         android:hint="@string/nombre"
         android:inputType="textPersonName"
+        android:textColor="@color/gris"
         app:layout_constraintBottom_toTopOf="@+id/txtPrimerApellido"
         app:layout_constraintEnd_toEndOf="@+id/txtPrimerApellido"
         app:layout_constraintHorizontal_bias="0.542"
@@ -87,8 +89,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
+        android:fontFamily="@font/aldrich"
         android:hint="@string/primerApellido"
         android:inputType="textPersonName"
+        android:textColor="@color/gris"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +104,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
+        android:fontFamily="@font/aldrich"
         android:hint="@string/segundoApellido"
         android:inputType="textPersonName"
+        android:textColor="@color/gris"
         app:layout_constraintEnd_toEndOf="@+id/txtPrimerApellido"
         app:layout_constraintStart_toStartOf="@+id/txtPrimerApellido"
         app:layout_constraintTop_toBottomOf="@+id/txtPrimerApellido" />
@@ -116,7 +122,6 @@
         android:fontFamily="@font/aldrich"
         android:text="@string/finalizar"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,6 +136,7 @@
         android:fontFamily="@font/aldrich"
         android:lineSpacingExtra="8sp"
         android:text="@string/completar"
+        android:textColor="@color/gris"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/txtPrimerApellido"
         app:layout_constraintEnd_toEndOf="parent"
