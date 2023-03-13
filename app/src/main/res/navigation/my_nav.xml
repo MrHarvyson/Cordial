@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.josec.cordial.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_incidenciaFragment"
+            app:destination="@id/incidenciaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notaFragment"
+            app:destination="@id/notaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incidenciaFragment"
+        android:name="com.josec.cordial.fragments.IncidenciaFragment"
+        android:label="fragment_incidencia"
+        tools:layout="@layout/fragment_incidencia" />
+    <fragment
+        android:id="@+id/notaFragment"
+        android:name="com.josec.cordial.fragments.NotaFragment"
+        android:label="fragment_nota"
+        tools:layout="@layout/fragment_nota" />
+</navigation>

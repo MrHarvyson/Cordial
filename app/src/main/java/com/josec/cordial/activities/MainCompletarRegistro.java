@@ -1,5 +1,6 @@
 package com.josec.cordial.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.josec.cordial.R;
 import com.josec.cordial.models.Alumno;
 import com.josec.cordial.providers.AlumnoProvider;
@@ -23,6 +26,7 @@ public class MainCompletarRegistro extends AppCompatActivity {
     Button entrar;
     AlumnoProvider mAlumnoProvider;
     AuthProvider mAuthProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,24 +48,34 @@ public class MainCompletarRegistro extends AppCompatActivity {
         mAuthProvider = new AuthProvider();
 
         entrar.setOnClickListener(v -> {
-            updateAlumno(nombre.getText().toString(), apellidoPrimero.getText().toString(), apellidoSegundo.getText().toString());
+            if (!nombre.getText().toString().equals(" ") || !apellidoPrimero.getText().toString().equals(" ") || !apellidoSegundo.getText().toString().equals(" ")) {
+                crearAlumno(nombre.getText().toString(), apellidoPrimero.getText().toString(), apellidoSegundo.getText().toString());
+            } else {
+                Toast.makeText(this, "Complete los campos.", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
-    public void updateAlumno(String nombre, String apellidoPrimero, String apellidoSegundo){
+    public void crearAlumno(String nombre, String apellidoPrimero, String apellidoSegundo) {
         String id = mAuthProvider.getUid();
         Alumno alumno = new Alumno();
+        String email = mAuthProvider.getEmail();
+        alumno.setId(id);
+        alumno.setEmail(email);
         alumno.setNombre(nombre);
         alumno.setPrimerApellido(apellidoPrimero);
         alumno.setSegundoApellido(apellidoSegundo);
-        alumno.setId(id);
-        mAlumnoProvider.updateAlumno(alumno).addOnCompleteListener(task -> {
-            if (task.isSuccessful()){
-                Intent intent = new Intent(MainCompletarRegistro.this,MainInicio.class);
-                startActivity(intent);
-                finish();
-            }else{
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+
+        mAlumnoProvider.creacionAlumno(alumno).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Intent intent = new Intent(MainCompletarRegistro.this, MainHome.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(MainCompletarRegistro.this, "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

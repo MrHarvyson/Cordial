@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public static GoogleSignInClient mGoogleSignInClient;
     AuthProvider mAuthProvider;
     AlumnoProvider mAlumnoProvider;
+    GoogleSignInOptions gso;
     boolean profesora = false;
     boolean alumno = false;
 
@@ -60,24 +61,28 @@ public class MainActivity extends AppCompatActivity {
         mAlumnoProvider = new AlumnoProvider();
 
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+
         imgProfesora.setOnClickListener(v ->{
-            cerraSesion();
             profesora = true;
             signIn();
         });
 
         imgAlumno.setOnClickListener(v ->{
-            cerraSesion();
             alumno = true;
             signIn();
         });
+    }
+
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
@@ -105,8 +110,18 @@ public class MainActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 id = mAuthProvider.getUid();
                 if(profesora){
-                    // inicio de sesion para el profesorado
-                    profesoraExistente(id);
+                    // averiguamos el tipo de cliente de correo
+                    String email = mAuthProvider.getEmail();
+                    String[] partes = email.split("@");
+                    String vedruna = partes[1];
+                    if(vedruna.equals("a.vedrunasevillasj.es")){
+                        // inicio de sesion para el profesorado
+                        profesoraExistente(id);
+                    }else{
+                        cerraSesion();
+                        Toast.makeText(this, "Correo incorrecto", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 if(alumno){
                     // inicio de sesion para el alumnado
@@ -126,36 +141,19 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()){
                     Animacion anim = new Animacion(imgLogo,imgAlumno,imgProfesora,txtMarca,txtVersion,txtAlumno,txtProfesora);
-                    Intent intent = new Intent(MainActivity.this,MainInicio.class);
+                    Intent intent = new Intent(MainActivity.this,MainHome.class);
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, anim.animacion());
                     startActivity(intent, options.toBundle());
                 }else{
-                    String email = mAuthProvider.getEmail();
-                    Alumno alumno = new Alumno();
-                    alumno.setId(id);
-                    alumno.setEmail(email);
-                    mAlumnoProvider.creacionAlumno(alumno).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                Animacion anim = new Animacion(imgLogo,imgAlumno,imgProfesora,txtMarca,txtVersion,txtAlumno,txtProfesora);
-                                Intent intent = new Intent(MainActivity.this,MainCompletarRegistro.class);
-                                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, anim.animacion());
-                                startActivity(intent, options.toBundle());
-                            }else{
-                                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                    Animacion anim = new Animacion(imgLogo,imgAlumno,imgProfesora,txtMarca,txtVersion,txtAlumno,txtProfesora);
+                    Intent intent = new Intent(MainActivity.this,MainCompletarRegistro.class);
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, anim.animacion());
+                    startActivity(intent, options.toBundle());
                 }
             }
         });
     }
 
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
 
     private void cerraSesion(){
         MainActivity.mGoogleSignInClient.signOut().addOnCompleteListener(task -> {
